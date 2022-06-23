@@ -49,7 +49,8 @@ class RegisterFragment : Fragment() {
             password.text.toString()).addOnCompleteListener {
                 task ->
             if(task.isSuccessful) {
-                Toast.makeText(context, "Register Successfully", Toast.LENGTH_SHORT).show()
+                var navHome = activity as FragmentNavigation
+                navHome.navigateFrag(HomeFragment(), addToStack = true)
             } else {
                 Toast.makeText(context, task.exception?.message, Toast.LENGTH_SHORT).show()
             }
