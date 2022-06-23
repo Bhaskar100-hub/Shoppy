@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/legion/AndroidStudioProjects/Shoppy/app/src/main/res/drawable-anydpi/ic_error.xml" value="0.1" />
         <entry key="..\:/Users/legion/AndroidStudioProjects/Shoppy/app/src/main/res/layout/fragment_login.xml" value="0.12" />
         <entry key="..\:/Users/legion/AndroidStudioProjects/Shoppy/app/src/main/res/layout/fragment_register.xml" value="0.16983695652173914" />
       </map>
