@@ -10,11 +10,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlin.concurrent.timerTask
 
 class RegisterFragment : Fragment() {
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var cnfPassword: EditText
+    private lateinit var fAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +31,7 @@ class RegisterFragment : Fragment() {
         username = view.findViewById(R.id.reg_username)
         password = view.findViewById(R.id.reg_password)
         cnfPassword = view.findViewById(R.id.reg_cnf_password)
+        fAuth = Firebase.auth
 
         view.findViewById<Button>(R.id.btn_login_reg).setOnClickListener {
             var navRegister = activity as FragmentNavigation
@@ -36,6 +42,18 @@ class RegisterFragment : Fragment() {
             validateEmptyForm()
         }
         return view
+    }
+
+    private fun firebaseSignUp() {
+        fAuth.createUserWithEmailAndPassword(username.text.toString(),
+            password.text.toString()).addOnCompleteListener {
+                task ->
+            if(task.isSuccessful) {
+                Toast.makeText(context, "Register Successfully", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, task.exception?.message, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun validateEmptyForm() {
@@ -63,7 +81,7 @@ class RegisterFragment : Fragment() {
                     username.text.toString().matches(Regex("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}\$"))) {
                     if (password.text.toString().length >= 5) {
                         if (password.text.toString() == cnfPassword.text.toString()) {
-                            Toast.makeText(context, "Register Successfully", Toast.LENGTH_SHORT).show()
+                            firebaseSignUp()
                         } else {
                             cnfPassword.setError("Password didn't match", icon)
                         }
