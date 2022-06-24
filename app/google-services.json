@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "262961738918",
-    "project_id": "shoopy-3dd74",
-    "storage_bucket": "shoopy-3dd74.appspot.com"
+    "project_number": "930597543890",
+    "project_id": "shoppy-cfd55",
+    "storage_bucket": "shoppy-cfd55.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:262961738918:android:c0c04e4b359d390ba5b067",
+        "mobilesdk_app_id": "1:930597543890:android:91946b208cd124ab23320b",
         "android_client_info": {
           "package_name": "wary.bhaskar.shoppy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "262961738918-fmgqnub19fd44sdpk0v26eo0ftri4630.apps.googleusercontent.com",
+          "client_id": "930597543890-94nhvi36070bb832acggbfb0jjo4911n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCVn2hRBbSmYMc06R7OqeOUf1j6o5ZtAOU"
+          "current_key": "AIzaSyArNE95RQW07HnTZfN3FN-reMXTstrdZ0U"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "262961738918-fmgqnub19fd44sdpk0v26eo0ftri4630.apps.googleusercontent.com",
+              "client_id": "930597543890-94nhvi36070bb832acggbfb0jjo4911n.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

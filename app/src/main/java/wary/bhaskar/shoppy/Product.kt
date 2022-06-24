@@ -1,3 +1,3 @@
 package wary.bhaskar.shoppy
 
-class Product(var img: Int, var title: String, var price: String)
+class Product(var img: String, var title: String, var price: String)

@@ -7,7 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : AppCompatActivity(), FragmentNavigation {
+class MainActivity : AppCompatActivity(), FragmentNavigation{
     private lateinit var fAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,11 +16,11 @@ class MainActivity : AppCompatActivity(), FragmentNavigation {
         fAuth = Firebase.auth
 
         val currentUser = fAuth.currentUser
-        if (currentUser != null) {
+        if(currentUser != null){
             supportFragmentManager.beginTransaction()
                 .add(R.id.container, HomeFragment()).addToBackStack(null)
                 .commit()
-        } else {
+        }else {
             supportFragmentManager.beginTransaction()
                 .add(R.id.container, LoginFragment())
                 .commit()
@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity(), FragmentNavigation {
     override fun navigateFrag(fragment: Fragment, addToStack: Boolean) {
         val transaction = supportFragmentManager
             .beginTransaction()
-            .replace(R.id.container, fragment)
+            .replace(R.id.container,fragment)
 
-        if (addToStack) {
+        if(addToStack){
             transaction.addToBackStack(null)
         }
         transaction.commit()
