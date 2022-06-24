@@ -13,7 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlin.concurrent.timerTask
+import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : Fragment() {
     private lateinit var username: EditText
@@ -45,6 +45,9 @@ class RegisterFragment : Fragment() {
     }
 
     private fun firebaseSignUp() {
+        btn_register_reg.isEnabled = false
+        btn_register_reg.alpha = 0.5f
+
         fAuth.createUserWithEmailAndPassword(username.text.toString(),
             password.text.toString()).addOnCompleteListener {
                 task ->
@@ -52,6 +55,8 @@ class RegisterFragment : Fragment() {
                 var navHome = activity as FragmentNavigation
                 navHome.navigateFrag(HomeFragment(), addToStack = true)
             } else {
+                btn_register_reg.isEnabled = true
+                btn_register_reg.alpha = 1.0f
                 Toast.makeText(context, task.exception?.message, Toast.LENGTH_SHORT).show()
             }
         }
